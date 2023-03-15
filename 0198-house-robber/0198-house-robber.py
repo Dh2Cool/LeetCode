@@ -1,11 +1,18 @@
 class Solution:
     
     def rob(self, nums: List[int]) -> int:
-        odd = 0
-        even = 0
-        for i, j in enumerate(nums):
-            if i%2 == 0:
-                odd = max(odd+j, even)
-            else:
-                even = max(even+j, odd)
-        return max(odd, even)
+        if len(nums) == 1:
+            return nums[0]
+        if len(nums) == 2:
+            return max(nums[0],nums[1])
+        res = [0 for x in range(len(nums))]
+        res[0] = nums[0]
+        res[1] = nums[1]
+        for i in range(len(nums)):
+            if i+2 < len(nums):
+                res[i+2] = max(res[i+2],res[i]+nums[i+2])
+            if i+3 < len(nums):
+                res[i+3] = max(res[i+3],res[i]+nums[i+3])
+        print(res)
+        return max(res[-1],res[-2])
+            
