@@ -35,14 +35,12 @@ class Solution {
             arr[1] = -1;
             return arr;
         }
-        int min = 10000000;
-        int max = pos.get(pos.size() - 1) - pos.get(0);
+        arr[0] = 10000000;
+        arr[1] = pos.get(pos.size() - 1) - pos.get(0);
         for(int j = 1; j < pos.size(); j++){
-            if(pos.get(j) - pos.get(j-1) < min)
-                min = pos.get(j) - pos.get(j - 1);
+            if(pos.get(j) - pos.get(j-1) < arr[0])
+                arr[0] = pos.get(j) - pos.get(j - 1);
         }
-        arr[0] = min;
-        arr[1] = max;
         return arr;
     }
 }
