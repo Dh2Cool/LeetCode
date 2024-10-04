@@ -14,6 +14,6 @@ class Solution {
                 left++;
             }
         }
-        return new int[]{-1, -1}; // If no solution is found        
+        return new int[]{-1, -1};      
     }
 }
